@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Stsp\LaravelMenu\Database\Migrations\CreateMenusTable;
+
+return new class extends Migration
+{
+    /**
+     * Create a new service instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->migration = app(CreateMenusTable::class);
+    }
+
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        $this->migration->up();
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        $this->migration->down();
+    }
+};

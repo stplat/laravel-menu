@@ -1,0 +1,55 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Menu;
+
+class MenuSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $menu = collect([
+            (object)['name' => 'Профиль', 'link' => '/', 'icon_class_name' => 'home', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => null], (object)['name' => 'Акции', 'link' => '/sales', 'icon_class_name' => 'point_of_sale', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => null],
+            (object)['name' => 'Услуги', 'link' => '/', 'icon_class_name' => 'point_of_sale', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => null],
+            (object)['name' => 'Заказы', 'link' => '/', 'icon_class_name' => 'point_of_sale', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => null],
+            (object)['name' => 'Исполнители', 'link' => '/', 'icon_class_name' => 'point_of_sale', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => null],
+            (object)['name' => 'Заказчики', 'link' => '/', 'icon_class_name' => 'point_of_sale', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => null],
+
+            (object)['name' => 'Информация', 'link' => '/profile', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => 1],
+            (object)['name' => 'Мои услуги', 'link' => '/my-services', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => 1],
+            (object)['name' => 'Мои заказы', 'link' => '/my-projects', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => 1],
+            (object)['name' => 'Баланс', 'link' => '/wallet', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => 1],
+
+            (object)['name' => 'Доступные услуги', 'link' => '/services', 'order' => 2, 'enabled' => 1, 'menu_parent_id' => 2],
+            (object)['name' => 'Избранные услуги', 'link' => '/favorite-services', 'order' => 3, 'enabled' => 1, 'menu_parent_id' => 2],
+
+            (object)['name' => 'Избранные заказы', 'link' => '/favorite-projects', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => 3],
+            (object)['name' => 'Доступные заказы', 'link' => '/projects', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => 3],
+            (object)['name' => 'Оплаченные заказы', 'link' => '/paid-projects', 'order' => 1, 'enabled' => 1, 'menu_parent_id' => 3],
+
+            (object)['name' => 'Доступные исполнители', 'link' => '/executors', 'order' => 2, 'enabled' => 1, 'menu_parent_id' => 4],
+            (object)['name' => 'Избранные исполнители', 'link' => '/favorite-executors', 'order' => 3, 'enabled' => 1, 'menu_parent_id' => 4],
+
+            (object)['name' => 'Доступные заказчики', 'link' => '/customers', 'order' => 2, 'enabled' => 1, 'menu_parent_id' => 5],
+            (object)['name' => 'Избранные заказчики', 'link' => '/favorite-customers', 'order' => 3, 'enabled' => 1, 'menu_parent_id' => 5],
+            (object)['name' => 'Оплаченные заказчики', 'link' => '/paid-customers', 'order' => 3, 'enabled' => 1, 'menu_parent_id' => 5],
+        ]);
+
+        $menu->each(function ($item) {
+            $model = new Menu();
+            $model->name = $item->name;
+            $model->link = $item->link;
+            $model->icon_class_name = $item->icon_class_name ?? null;
+            $model->order = $item->order ?? 0;
+            $model->enabled = $item->enabled;
+            $model->menu_parent_id = $item->menu_parent_id;
+            $model->save();
+        });
+    }
+}

@@ -2,9 +2,9 @@
 
 namespace Stsp\LaravelMenu;
 
-use Stsp\LaravelMenu\Console\UnpackCommand;
 use Illuminate\Support\ServiceProvider;
-
+use Stsp\LaravelMenu\Console\MigrateCommand;
+use Stsp\LaravelMenu\Console\SeederCommand;
 
 class MenuServiceProvider extends ServiceProvider
 {
@@ -16,13 +16,22 @@ class MenuServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->singleton(
-            'command.laravel-menu.unpack',
+            'command.laravel-menu.migrate',
             function ($app) {
-                return new UnpackCommand($app['files']);
+                return new MigrateCommand($app['files']);
             }
         );
 
-        $this->commands('command.laravel-menu.unpack');
+        $this->commands('command.laravel-menu.migrate');
+
+        $this->app->singleton(
+            'command.laravel-menu.seed',
+            function ($app) {
+                return new SeederCommand($app['files']);
+            }
+        );
+
+        $this->commands('command.laravel-menu.seed');
     }
 
     /**
