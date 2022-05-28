@@ -13,7 +13,7 @@ class UnpackCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'make:service';
+    protected $name = 'menu:unpack';
 
     /**
      * The console command description.
