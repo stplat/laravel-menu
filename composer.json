@@ -1,7 +1,7 @@
 {
     "name": "stsp/laravel-menu",
     "type": "library",
-    "description": "Composer package by DataArt",
+    "description": "API for managing menu items in Laravel project",
     "license": "MIT",
     "require": {
         "php": ">=7.4"
