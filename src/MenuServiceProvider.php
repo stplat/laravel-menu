@@ -18,7 +18,7 @@ class MenuServiceProvider extends ServiceProvider
         $this->app->singleton(
             'command.laravel-menu.unpack',
             function ($app) {
-                return new UnpackCommand();
+                return new UnpackCommand($app['files']);
             }
         );
 
