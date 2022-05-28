@@ -1,0 +1,14 @@
+{
+    "name": "stsp/laravel-menu",
+    "type": "library",
+    "description": "Composer package by DataArt",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stsp\\LaravelMenu\\": "src/"
+        }
+    }
+}
