@@ -4,11 +4,23 @@
     "description": "API for managing menu items in Laravel project",
     "license": "MIT",
     "require": {
-        "php": ">=7.3"
+        "php": "^8.0",
+        "illuminate/support": "^9.14",
+        "illuminate/console": "^9.14"
     },
     "autoload": {
         "psr-4": {
             "Stsp\\LaravelMenu\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.1"
+        },
+        "laravel": {
+            "providers": [
+                "Stsp\\LaravelMenu\\MenuServiceProvider"
+            ]
         }
     }
 }
